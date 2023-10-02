@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:theme_presistence/preferences/theme_preference.dart';
 
 class ThemePreferencesPage extends StatelessWidget {
   const ThemePreferencesPage({super.key});
@@ -11,8 +12,9 @@ class ThemePreferencesPage extends StatelessWidget {
       ),
       body: ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        itemCount: 4,
+        itemCount: ThemePrefer.themePrefList.length,
         itemBuilder: (context, index) {
+          final selectedTheme = ThemePrefer.themePrefList[index];
           return Container(
             height: 50,
             margin: const EdgeInsets.all(8),
@@ -25,8 +27,8 @@ class ThemePreferencesPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               color: Colors.blue,
             ),
-            child: const Center(
-              child: Text('LightTheme'),
+            child: Center(
+              child: Text(selectedTheme),
             ),
           );
         }),
