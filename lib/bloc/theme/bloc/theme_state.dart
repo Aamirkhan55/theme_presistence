@@ -4,7 +4,7 @@ abstract class ThemeState extends Equatable {
   const ThemeState();
 }
 
- class ThemeInitial extends ThemeState {
+class ThemeInitial extends ThemeState {
   @override
   List<Object?> get props => [];
 }
@@ -19,8 +19,24 @@ class ThemeLoaded extends ThemeState {
 
 class PerservedThemeLoaded extends ThemeState {
   final String name;
-  const PerservedThemeLoaded(this.name);
-  
+  const PerservedThemeLoaded({required this.name});
+
+  @override
+  List<Object?> get props => [name];
+}
+
+class GetPerservedThemeEvent extends ThemeEvent {
+  const GetPerservedThemeEvent();
+  @override
+  List<Object?> get props => [];
+}
+
+class GetPerservedThemeEventLoad extends ThemeEvent {
+
+  final String name;
+
+  const GetPerservedThemeEventLoad(this.name);
+
   @override
   List<Object?> get props => [name];
 }
